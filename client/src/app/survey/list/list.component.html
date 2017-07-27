@@ -1,0 +1,24 @@
+
+
+<div>
+<h3>Survey Listing</h3>
+ <!-- <button (click)="onLogout()">Logout</button> -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Survey Question</th><th>Date Posted</th><th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <input type="text" placeholder="Search for name or question" name="searchStr"   [(ngModel)]="searchStr"/>
+    <tr *ngFor="let survey of surveys | filter:searchStr">
+      <td>{{survey.userName}}</td>
+      <td>{{survey.question}}</td>
+      <td>{{survey.createdAt|date:'mediumDate'}}</td>
+      <td><button (click)="onSelectButton(survey)">Select</button>
+       
+     <td>   <button (click)="onDeleteButton(survey)"  [attr.disabled]="survey.userName === currentUserName ? null : true">Remove</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

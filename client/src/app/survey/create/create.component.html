@@ -1,0 +1,24 @@
+<div>
+   <!-- <button (click)="onLogout()">Logout</button> -->
+<h4>Put your survey question and options here</h4>
+<form (submit)="onCreateMade()" #formData="ngForm">
+  Question: <textarea name="question" rows="1" cols="80" [(ngModel)]="newSurvey.question" #question="ngModel" required minlength="8"></textarea>
+  <p></p>
+  <span style="color: red;" *ngIf="question.errors && (question.dirty ||question.touched)">question should atleast be 8 characters long</span> <br>
+  Option 1: <input type="text" name="option1" [(ngModel)]="newSurvey.option1" #option1="ngModel" required minlength="3"/>
+  <p></p>
+   <span style="color: red;" *ngIf="option1.errors && (option1.dirty ||option1.touched)">option1 should atleast be 3 characters long</span> <br>
+  Option 2: <input type="text" name="option2" [(ngModel)]="newSurvey.option2" #option2="ngModel"required minlength="3"/>
+  <p></p>
+  <span style="color: red;" *ngIf="option2.errors && (option2.dirty ||option2.touched)">option2  should atleast be 3 characters long</span> <br>
+  Option 3: <input type="text" name="option3" [(ngModel)]="newSurvey.option3" #option3="ngModel"required minlength="3"/>
+  <p></p>
+  <span style="color: red;" *ngIf="option3.errors && (option3.dirty ||option3.touched)">option3  should atleast be 3 characters long</span> <br>
+  Option 4: <input type="text" name="option4" [(ngModel)]="newSurvey.option4" #option4="ngModel"required minlength="3"/>
+  <p></p>
+  <span style="color: red;" *ngIf="option4.errors && (option4.dirty ||option4.touched)">option4  should atleast be 3 characters long</span> <br>
+  <button type="submit" [disabled]="!formData.form.valid">Create</button>
+   
+</form>
+<button type="button" (click)="onCancel()" >Cancel</button>
+</div>
