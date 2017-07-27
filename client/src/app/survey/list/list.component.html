@@ -3,6 +3,7 @@
 <div>
 <h3>Survey Listing</h3>
  <!-- <button (click)="onLogout()">Logout</button> -->
+ <input type="text" placeholder="Search for name or question" name="searchStr"   [(ngModel)]="searchStr"/>
 <table>
   <thead>
     <tr>
@@ -10,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <input type="text" placeholder="Search for name or question" name="searchStr"   [(ngModel)]="searchStr"/>
+    
     <tr *ngFor="let survey of surveys | filter:searchStr">
       <td>{{survey.userName}}</td>
       <td>{{survey.question}}</td>
